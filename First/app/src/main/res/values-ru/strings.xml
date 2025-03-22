@@ -5,4 +5,9 @@
     <string name="sample_text">Hello</string>
     <string name="first_btn">Первая кнопка</string>
     <string name="second_btn">Вторая кнопка</string>
+
+    <string name="logo_text">Калькулятор</string>
+    <string name="number_1">Число 1</string>
+    <string name="number_2">Число 2</string>
+    <string name="sum_btn">Вычислить сумму</string>
 </resources>
