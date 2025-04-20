@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculateActivity">
+
+    <EditText
+        android:id="@+id/cost_of_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:hint="Введите стоимость"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/service_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Как вам обслуживание?"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cost_of_service" />
+
+    <RadioGroup
+        android:id="@+id/tip_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/options_seven_percent"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/service_question">
+
+        <RadioButton
+            android:id="@+id/options_ten_percent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Олично (10%)" />
+
+        <RadioButton
+            android:id="@+id/options_seven_percent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Хорошо (7%)" />
+
+        <RadioButton
+            android:id="@+id/options_five_percent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Так себе (5%)" />
+    </RadioGroup>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/round_switch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Округлять чаевые?"
+        android:checked="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tip_options" />
+
+    <Button
+        android:id="@+id/calculate_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Рассчитать"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/round_switch" />
+
+    <TextView
+        android:id="@+id/tip_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Сумма чаевых"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#664FA3"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>

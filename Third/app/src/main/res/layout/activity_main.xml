@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:checked="true"
+            android:text="Зеленый" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Оранжевый" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Цветной текст"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/changeColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Выбор цвета"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/textColor" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:checked="true"
+        android:text="ToggleButton"
+        android:textOff="Unpessed"
+        android:textOn="Pressed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="Включить подсветку?"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton"
+        app:layout_constraintTop_toBottomOf="@+id/changeColor"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchCompat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="SwitchCompat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchMaterial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="SwitchMaterial"
+        app:layout_constraintStart_toEndOf="@+id/switchCompat"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton"
+        android:thumb="@drawable/baseline_wb_sunny_24"
+        />
+
+    <TextView
+        android:id="@+id/sampleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Text"
+        android:textSize="25sp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchMaterial" />
+
+    <CheckBox
+        android:id="@+id/boldCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bold"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sampleTextView" />
+
+    <CheckBox
+        android:id="@+id/italicCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="italic"
+        android:textStyle="italic"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boldCheckBox" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonForProgress"
+        app:layout_constraintStart_toEndOf="@+id/boldCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/sampleTextView" />
+
+    <Button
+        android:id="@+id/buttonForProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+    <ProgressBar
+        android:id="@+id/progressBarHorizontal"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/italicCheckBox"
+        android:progressDrawable="@drawable/custom_progress_bg"/>
+
+    <Button
+        android:id="@+id/startProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Start Progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarHorizontal" />
+
+    <EditText
+        android:id="@+id/editTextKeyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="16"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startProgress" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextKeyword" />
+
+    <Button
+        android:id="@+id/buttonShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Selections"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonAdd" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="370dp"
+        android:layout_height="140dp"
+        android:background="#F4F2F2"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAdd"
+        app:layout_constraintVertical_bias="0.3">
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!--    <HorizontalScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/startProgress">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <com.google.android.material.chip.ChipGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="31dp"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                app:chipSpacingHorizontal="30dp"-->
+<!--                app:chipSpacingVertical="0dp"-->
+<!--                app:singleLine="true">-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:theme="@style/Theme.MaterialComponents.Light"-->
+<!--                    android:text="One" />-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:theme="@style/Theme.MaterialComponents.Bridge"-->
+<!--                    android:text="Two" />-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/Widget.MaterialComponents.Chip.Entry"-->
+<!--                    android:text="Three" />-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip5"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/Widget.MaterialComponents.Chip.Choice"-->
+<!--                    android:text="Four" />-->
+
+<!--                <com.google.android.material.chip.Chip-->
+<!--                    android:id="@+id/chip6"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/Widget.MaterialComponents.Chip.Filter"-->
+<!--                    android:text="Five" />-->
+<!--            </com.google.android.material.chip.ChipGroup>-->
+<!--        </LinearLayout>-->
+<!--    </HorizontalScrollView>-->
+
+    <!--    <com.google.android.material.chip.Chip-->
+<!--        android:id="@+id/chip"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="20dp"-->
+<!--        android:text="Chip Action"-->
+<!--        app:chipIcon="@drawable/baseline_wb_sunny_24"-->
+<!--        app:closeIconVisible="true"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/startProgress" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
