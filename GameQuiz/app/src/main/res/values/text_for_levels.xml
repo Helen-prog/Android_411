@@ -10,4 +10,15 @@
     <string name="lvl1_text_7">Семь</string>
     <string name="lvl1_text_8">Восемь</string>
     <string name="lvl1_text_9">Девять</string>
+
+    <string name="lvl2_text_1">I</string>
+    <string name="lvl2_text_2">II</string>
+    <string name="lvl2_text_3">III</string>
+    <string name="lvl2_text_4">IV</string>
+    <string name="lvl2_text_5">V</string>
+    <string name="lvl2_text_6">VI</string>
+    <string name="lvl2_text_7">VII</string>
+    <string name="lvl2_text_8">VIII</string>
+    <string name="lvl2_text_9">IX</string>
+    <string name="lvl2_text_10">X</string>
 </resources>

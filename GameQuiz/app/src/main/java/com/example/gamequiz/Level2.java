@@ -59,6 +59,14 @@ public class Level2 extends AppCompatActivity {
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));  // прозрачный фон диалогового окна
         dialog.setCancelable(false);  // окно нельзя закрыть кликом за пределами окна
 
+        // устанавливаем картинку в диалоговое окно
+        ImageView previewImg = dialog.findViewById(R.id.preview_img);
+        previewImg.setImageResource(R.drawable.number_lev_two);
+
+        // устанавливаем описание задания
+        TextView textDescription = dialog.findViewById(R.id.text_description);
+        textDescription.setText(R.string.level_two);
+
         // кнопка Назад
         TextView btnClose = dialog.findViewById(R.id.button_close);
         btnClose.setOnClickListener(new View.OnClickListener() {
@@ -95,8 +103,8 @@ public class Level2 extends AppCompatActivity {
 
         // генерировали случайное значение для левой картинки
         numLeft = random.nextInt(10);
-        imgLeft.setImageResource(array.images1[numLeft]);
-        textLeft.setText(array.text1[numLeft]);  // достаем из массива текст
+        imgLeft.setImageResource(array.images2[numLeft]);
+        textLeft.setText(array.text2[numLeft]);  // достаем из массива текст
 
         // генерировали случайное значение для правой картинки
 
@@ -104,8 +112,8 @@ public class Level2 extends AppCompatActivity {
             numRight = random.nextInt(10);
         } while (numLeft == numRight);
 
-        imgRight.setImageResource(array.images1[numRight]);
-        textRight.setText(array.text1[numRight]);  // достаем из массива текст
+        imgRight.setImageResource(array.images2[numRight]);
+        textRight.setText(array.text2[numRight]);  // достаем из массива текст
 
         // массив для прогресса игры
         final int[] progress = {R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5, R.id.point6, R.id.point7, R.id.point8, R.id.point9, R.id.point10, R.id.point11, R.id.point12, R.id.point13, R.id.point14, R.id.point15, R.id.point16, R.id.point17, R.id.point18, R.id.point19, R.id.point20};
@@ -162,16 +170,16 @@ public class Level2 extends AppCompatActivity {
 
                     } else {
                         numLeft = random.nextInt(10);
-                        imgLeft.setImageResource(array.images1[numLeft]);  // достаем из массива картинку
+                        imgLeft.setImageResource(array.images2[numLeft]);  // достаем из массива картинку
                         imgLeft.startAnimation(animation);  // запускаем анимацию для левой картинки
-                        textLeft.setText(array.text1[numLeft]);  // достаем из массива текст
+                        textLeft.setText(array.text2[numLeft]);  // достаем из массива текст
 
                         do {
                             numRight = random.nextInt(10);
                         } while (numLeft == numRight);
-                        imgRight.setImageResource(array.images1[numRight]);  // достаем из массива картинку
+                        imgRight.setImageResource(array.images2[numRight]);  // достаем из массива картинку
                         imgRight.startAnimation(animation);  // запускаем анимацию для правой картинки
-                        textRight.setText(array.text1[numRight]);  // достаем из массива текст
+                        textRight.setText(array.text2[numRight]);  // достаем из массива текст
                         imgRight.setEnabled(true);  // включаем обратно правую картинку
                     }
                 }
@@ -231,16 +239,16 @@ public class Level2 extends AppCompatActivity {
 
                     } else {
                         numLeft = random.nextInt(10);
-                        imgLeft.setImageResource(array.images1[numLeft]);  // достаем из массива картинку
+                        imgLeft.setImageResource(array.images2[numLeft]);  // достаем из массива картинку
                         imgLeft.startAnimation(animation);  // запускаем анимацию для левой картинки
-                        textLeft.setText(array.text1[numLeft]);  // достаем из массива текст
+                        textLeft.setText(array.text2[numLeft]);  // достаем из массива текст
 
                         do {
                             numRight = random.nextInt(10);
                         } while (numLeft == numRight);
-                        imgRight.setImageResource(array.images1[numRight]);  // достаем из массива картинку
+                        imgRight.setImageResource(array.images2[numRight]);  // достаем из массива картинку
                         imgRight.startAnimation(animation);  // запускаем анимацию для правой картинки
-                        textRight.setText(array.text1[numRight]);  // достаем из массива текст
+                        textRight.setText(array.text2[numRight]);  // достаем из массива текст
                         imgLeft.setEnabled(true);  // включаем обратно правую картинку
                     }
 
