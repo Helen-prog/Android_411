@@ -21,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Objects;
 import java.util.Random;
 
-public class Level2 extends AppCompatActivity {
+public class Level3 extends AppCompatActivity {
 
     Dialog dialog;
     Dialog dialogEnd;
@@ -73,7 +73,7 @@ public class Level2 extends AppCompatActivity {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level2.this, GameLevels.class);
+                Intent intent = new Intent(Level3.this, GameLevels.class);
                 startActivity(intent);
                 dialog.dismiss();  // закрытие диалогового окна
             }
@@ -108,7 +108,7 @@ public class Level2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // вернемся к выбору уровня
-                Intent intent = new Intent(Level2.this, GameLevels.class);
+                Intent intent = new Intent(Level3.this, GameLevels.class);
                 startActivity(intent);
                 dialogEnd.dismiss();
             }
@@ -118,7 +118,7 @@ public class Level2 extends AppCompatActivity {
         buttonContinue2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level2.this, Level3.class);
+                Intent intent = new Intent(Level3.this, Level3.class);
                 startActivity(intent);
                 dialogEnd.dismiss();
             }
@@ -131,12 +131,12 @@ public class Level2 extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level2.this, GameLevels.class);
+                Intent intent = new Intent(Level3.this, GameLevels.class);
                 startActivity(intent);
             }
         });
 
-        final Animation animation = AnimationUtils.loadAnimation(Level2.this, R.anim.alpha);
+        final Animation animation = AnimationUtils.loadAnimation(Level3.this, R.anim.alpha);
 
         // генерировали случайное значение для левой картинки
         numLeft = random.nextInt(10);

@@ -46,5 +46,15 @@ public class GameLevels extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // кнопка для перехода на 3 уровень
+        TextView textView3 = findViewById(R.id.textView3);
+        textView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GameLevels.this, Level3.class);
+                startActivity(intent);
+            }
+        });
     }
 }
