@@ -43,4 +43,25 @@
     <string name="lvl3_text_19">4/3</string>
     <string name="lvl3_text_20">3/2</string>
     <string name="lvl3_text_21">7/4</string>
+
+    <string name="lvl4_text_1">Груша</string>
+    <string name="lvl4_text_2">Снеговик</string>
+    <string name="lvl4_text_3">Яблоко</string>
+    <string name="lvl4_text_4">Подарок</string>
+    <string name="lvl4_text_5">Баклажан</string>
+    <string name="lvl4_text_6">Гирлянда</string>
+    <string name="lvl4_text_7">Морковь</string>
+    <string name="lvl4_text_8">Олень</string>
+    <string name="lvl4_text_9">Картофель</string>
+    <string name="lvl4_text_10">Сумки</string>
+    <string name="lvl4_text_11">Лимон</string>
+    <string name="lvl4_text_12">Ёлка</string>
+    <string name="lvl4_text_13">Лук</string>
+    <string name="lvl4_text_14">Домик</string>
+    <string name="lvl4_text_15">Помидор</string>
+    <string name="lvl4_text_16">Мешок</string>
+    <string name="lvl4_text_17">Авокадо</string>
+    <string name="lvl4_text_18">Шар</string>
+    <string name="lvl4_text_19">Гранат</string>
+    <string name="lvl4_text_20">Шапка</string>
 </resources>

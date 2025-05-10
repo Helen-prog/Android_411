@@ -23,7 +23,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import java.util.Objects;
 import java.util.Random;
 
-public class Level3 extends AppCompatActivity {
+public class Level4 extends AppCompatActivity {
 
     Dialog dialog;
     Dialog dialogEnd;
@@ -42,7 +42,7 @@ public class Level3 extends AppCompatActivity {
 
         // устанавливаем номер уровня
         TextView textLevels = findViewById(R.id.textView);
-        textLevels.setText(R.string.level_3);
+        textLevels.setText(R.string.level_4);
 
         textLevels.setTextColor(R.color.black_middle);
 
@@ -71,23 +71,22 @@ public class Level3 extends AppCompatActivity {
 
         // устанавливаем картинку в диалоговое окно
         ImageView previewImg = dialog.findViewById(R.id.preview_img);
-        previewImg.setImageResource(R.drawable.preview_img_3);
+        previewImg.setImageResource(R.drawable.preview_img_4);
 
         // устанавливаем фон диалогового окна
         LinearLayout dialogFon = dialog.findViewById(R.id.dialog_fon);
-        dialogFon.setBackgroundResource(R.drawable.preview_background_3);
-
+        dialogFon.setBackgroundResource(R.drawable.preview_background_4);
 
         // устанавливаем описание задания
         TextView textDescription = dialog.findViewById(R.id.text_description);
-        textDescription.setText(R.string.level_three);
+        textDescription.setText(R.string.level_four);
 
         // кнопка Назад
         TextView btnClose = dialog.findViewById(R.id.button_close);
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level3.this, GameLevels.class);
+                Intent intent = new Intent(Level4.this, GameLevels.class);
                 startActivity(intent);
                 dialog.dismiss();  // закрытие диалогового окна
             }
@@ -115,18 +114,14 @@ public class Level3 extends AppCompatActivity {
 
         // интересный факт
         TextView textDescriptionEnd = dialogEnd.findViewById(R.id.text_description_end);
-        textDescriptionEnd.setText(R.string.level_three_end);
-
-        LinearLayout dialogFonEnd = dialogEnd.findViewById(R.id.dialog_fon);
-        dialogFonEnd.setBackgroundResource(R.drawable.preview_background_3);
-
+        textDescriptionEnd.setText(R.string.level_two_end);
 
         TextView btnClose2 = dialogEnd.findViewById(R.id.button_close);
         btnClose2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // вернемся к выбору уровня
-                Intent intent = new Intent(Level3.this, GameLevels.class);
+                Intent intent = new Intent(Level4.this, GameLevels.class);
                 startActivity(intent);
                 dialogEnd.dismiss();
             }
@@ -136,7 +131,7 @@ public class Level3 extends AppCompatActivity {
         buttonContinue2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level3.this, Level3.class);
+                Intent intent = new Intent(Level4.this, Level4.class);
                 startActivity(intent);
                 dialogEnd.dismiss();
             }
@@ -153,12 +148,12 @@ public class Level3 extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Level3.this, GameLevels.class);
+                Intent intent = new Intent(Level4.this, GameLevels.class);
                 startActivity(intent);
             }
         });
 
-        final Animation animation = AnimationUtils.loadAnimation(Level3.this, R.anim.alpha);
+        final Animation animation = AnimationUtils.loadAnimation(Level4.this, R.anim.alpha);
 
         // генерировали случайное значение для левой картинки
         numLeft = random.nextInt(21);
