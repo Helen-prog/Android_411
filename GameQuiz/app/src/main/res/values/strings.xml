@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">GameQuiz</string>
-    <string name="start">Начать</string>
-    <string name="back">Назад</string>
-    <string name="level">Уровень:</string>
-    <string name="level_1">Уровень 1</string>
-    <string name="level_2">Уровень 2</string>
-    <string name="level_3">Уровень 3</string>
-    <string name="level_4">Уровень 4</string>
-    <string name="text_continue">Продолжить</string>
+    <string name="start">Start</string>
+    <string name="back">Back</string>
+    <string name="level">Level:</string>
+    <string name="level_1">Level 1</string>
+    <string name="level_2">Level 2</string>
+    <string name="level_3">Level 3</string>
+    <string name="level_4">Level 4</string>
+    <string name="text_continue">Continue</string>
+    <string name="reset">Reset</string>
 </resources>

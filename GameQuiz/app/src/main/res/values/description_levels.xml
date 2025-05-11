@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="level_one">Выбери цифру, которая больше.\nВопросы могут повторяться, пока вы не наберете 20 очков.</string>
-    <string name="level_one_end">"Поздравляем уровень пройден!\n
-            А знаете ли вы, что число 7 считается самым счастливым числом. Существует 7 дней в недели, 7 континентов, 7 цветов радуги, 7 музыкальных нот и многое другое.
-            Также число 7 является любимым числом большинства людей в мире."</string>
-    <string name="level_two">Выбери римскую цифру, которая больше.\nВопросы могут повторяться, пока вы не наберете 20 очков.</string>
-    <string name="level_two_end">"Поздравляем уровень пройден!\n
-            А знаете ли вы, что в римских цифрах отсутствует ноль?"</string>
-    <string name="level_three">Выберите дробь, которая больше.\nВопросы могут повторяться, пока вы не наберете 20 очков.</string>
-    <string name="level_three_end">"Поздравляем уровень пройден!\n
-            Действия над дробями в средние века считалось самой сложной областью математики."</string>
+    <string name="level_one">Choose the number that is higher.\nQuestions can be repeated until you get 20 points.</string>
+    <string name="level_one_end">"Congratulations, the level is completed!\n
+Did you know that the number 7 is considered the luckiest number? There are 7 days in a week, 7 continents, 7 colors of the rainbow, 7 musical notes and much more.
+Also, the number 7 is the favorite number of most people in the world."</string>
+    <string name="level_two">Choose the Roman numeral that is greater.\nQuestions can be repeated until you get 20 points.</string>
+    <string name="level_two_end">"Congratulations, the level is completed!\n
+Did you know that there is no zero in Roman numerals?"</string>
+    <string name="level_three">Choose the fraction that is larger.\nQuestions can be repeated until you reach 20 points.</string>
+    <string name="level_three_end">"Congratulations, the level has been completed!\n
+Operations with fractions in the Middle Ages were considered the most difficult area of mathematics."</string>
 
-    <string name="level_four">Выберите что-нибудь съедобное.\nВопросы могут повторяться, пока вы не наберете 20 очков.</string>
-    <string name="level_four_end">"Поздравляем уровень пройден!\n
-            Многие крокодилы глотают камни. Но не потому что для них они съедобны. Камни помогают им быстрее погружаться в воду и удерживаться на дне."</string>
+    <string name="level_four">Choose something edible.\nQuestions can be repeated until you get 20 points.</string>
+    <string name="level_four_end">"Congratulations, the level is completed!\n
+Many crocodiles swallow stones. But not because they find them edible. Stones help them dive faster into the water and stay on the bottom."</string>
 </resources>

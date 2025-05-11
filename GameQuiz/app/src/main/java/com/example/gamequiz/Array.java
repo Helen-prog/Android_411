@@ -128,4 +128,29 @@ public class Array {
             R.drawable.edible_10,
             R.drawable.inedible_10
     };
+
+    final int[] text4 = {
+            R.string.lvl4_text_1,
+            R.string.lvl4_text_2,
+            R.string.lvl4_text_3,
+            R.string.lvl4_text_4,
+            R.string.lvl4_text_5,
+            R.string.lvl4_text_6,
+            R.string.lvl4_text_7,
+            R.string.lvl4_text_8,
+            R.string.lvl4_text_9,
+            R.string.lvl4_text_10,
+            R.string.lvl4_text_11,
+            R.string.lvl4_text_12,
+            R.string.lvl4_text_13,
+            R.string.lvl4_text_14,
+            R.string.lvl4_text_15,
+            R.string.lvl4_text_16,
+            R.string.lvl4_text_17,
+            R.string.lvl4_text_18,
+            R.string.lvl4_text_19,
+            R.string.lvl4_text_20
+    };
+
+    final int[] choice = {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0};
 }

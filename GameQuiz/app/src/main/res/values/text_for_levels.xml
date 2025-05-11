@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lvl1_text_0">Ноль</string>
-    <string name="lvl1_text_1">Один</string>
-    <string name="lvl1_text_2">Два</string>
-    <string name="lvl1_text_3">Три</string>
-    <string name="lvl1_text_4">Четыре</string>
-    <string name="lvl1_text_5">Пять</string>
-    <string name="lvl1_text_6">Шесть</string>
-    <string name="lvl1_text_7">Семь</string>
-    <string name="lvl1_text_8">Восемь</string>
-    <string name="lvl1_text_9">Девять</string>
+    <string name="lvl1_text_0">Zero</string>
+    <string name="lvl1_text_1">One</string>
+    <string name="lvl1_text_2">Tho</string>
+    <string name="lvl1_text_3">Three</string>
+    <string name="lvl1_text_4">Four</string>
+    <string name="lvl1_text_5">Five</string>
+    <string name="lvl1_text_6">Six</string>
+    <string name="lvl1_text_7">Seven</string>
+    <string name="lvl1_text_8">Eight</string>
+    <string name="lvl1_text_9">Nine</string>
 
     <string name="lvl2_text_1">I</string>
     <string name="lvl2_text_2">II</string>
@@ -44,24 +44,24 @@
     <string name="lvl3_text_20">3/2</string>
     <string name="lvl3_text_21">7/4</string>
 
-    <string name="lvl4_text_1">Груша</string>
-    <string name="lvl4_text_2">Снеговик</string>
-    <string name="lvl4_text_3">Яблоко</string>
-    <string name="lvl4_text_4">Подарок</string>
-    <string name="lvl4_text_5">Баклажан</string>
-    <string name="lvl4_text_6">Гирлянда</string>
-    <string name="lvl4_text_7">Морковь</string>
-    <string name="lvl4_text_8">Олень</string>
-    <string name="lvl4_text_9">Картофель</string>
-    <string name="lvl4_text_10">Сумки</string>
-    <string name="lvl4_text_11">Лимон</string>
-    <string name="lvl4_text_12">Ёлка</string>
-    <string name="lvl4_text_13">Лук</string>
-    <string name="lvl4_text_14">Домик</string>
-    <string name="lvl4_text_15">Помидор</string>
-    <string name="lvl4_text_16">Мешок</string>
-    <string name="lvl4_text_17">Авокадо</string>
-    <string name="lvl4_text_18">Шар</string>
-    <string name="lvl4_text_19">Гранат</string>
-    <string name="lvl4_text_20">Шапка</string>
+    <string name="lvl4_text_1">Pear</string>
+    <string name="lvl4_text_2">Snowman</string>
+    <string name="lvl4_text_3">Apple</string>
+    <string name="lvl4_text_4">Present</string>
+    <string name="lvl4_text_5">Eggplant</string>
+    <string name="lvl4_text_6">Carland</string>
+    <string name="lvl4_text_7">Carrot</string>
+    <string name="lvl4_text_8">Deer</string>
+    <string name="lvl4_text_9">Potato</string>
+    <string name="lvl4_text_10">Bags</string>
+    <string name="lvl4_text_11">Lemon</string>
+    <string name="lvl4_text_12">Christmas tree</string>
+    <string name="lvl4_text_13">Onion</string>
+    <string name="lvl4_text_14">House</string>
+    <string name="lvl4_text_15">Tomato</string>
+    <string name="lvl4_text_16">Bag</string>
+    <string name="lvl4_text_17">Avocado</string>
+    <string name="lvl4_text_18">Ball</string>
+    <string name="lvl4_text_19">Pomegranate</string>
+    <string name="lvl4_text_20">Cap</string>
 </resources>

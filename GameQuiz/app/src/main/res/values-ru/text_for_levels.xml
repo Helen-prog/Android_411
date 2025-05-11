@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lvl1_text_0">Ноль</string>
+    <string name="lvl1_text_1">Один</string>
+    <string name="lvl1_text_2">Два</string>
+    <string name="lvl1_text_3">Три</string>
+    <string name="lvl1_text_4">Четыре</string>
+    <string name="lvl1_text_5">Пять</string>
+    <string name="lvl1_text_6">Шесть</string>
+    <string name="lvl1_text_7">Семь</string>
+    <string name="lvl1_text_8">Восемь</string>
+    <string name="lvl1_text_9">Девять</string>
+
+    <string name="lvl2_text_1">I</string>
+    <string name="lvl2_text_2">II</string>
+    <string name="lvl2_text_3">III</string>
+    <string name="lvl2_text_4">IV</string>
+    <string name="lvl2_text_5">V</string>
+    <string name="lvl2_text_6">VI</string>
+    <string name="lvl2_text_7">VII</string>
+    <string name="lvl2_text_8">VIII</string>
+    <string name="lvl2_text_9">IX</string>
+    <string name="lvl2_text_10">X</string>
+
+    <string name="lvl3_text_1">1/16</string>
+    <string name="lvl3_text_2">1/8</string>
+    <string name="lvl3_text_3">3/16</string>
+    <string name="lvl3_text_4">1/4</string>
+    <string name="lvl3_text_5">5/16</string>
+    <string name="lvl3_text_6">1/3</string>
+    <string name="lvl3_text_7">3/8</string>
+    <string name="lvl3_text_8">7/16</string>
+    <string name="lvl3_text_9">1/2</string>
+    <string name="lvl3_text_10">9/16</string>
+    <string name="lvl3_text_11">5/8</string>
+    <string name="lvl3_text_12">2/3</string>
+    <string name="lvl3_text_13">11/16</string>
+    <string name="lvl3_text_14">3/4</string>
+    <string name="lvl3_text_15">13/16</string>
+    <string name="lvl3_text_16">7/8</string>
+    <string name="lvl3_text_17">15/16</string>
+    <string name="lvl3_text_18">1</string>
+    <string name="lvl3_text_19">4/3</string>
+    <string name="lvl3_text_20">3/2</string>
+    <string name="lvl3_text_21">7/4</string>
+
+    <string name="lvl4_text_1">Груша</string>
+    <string name="lvl4_text_2">Снеговик</string>
+    <string name="lvl4_text_3">Яблоко</string>
+    <string name="lvl4_text_4">Подарок</string>
+    <string name="lvl4_text_5">Баклажан</string>
+    <string name="lvl4_text_6">Гирлянда</string>
+    <string name="lvl4_text_7">Морковь</string>
+    <string name="lvl4_text_8">Олень</string>
+    <string name="lvl4_text_9">Картофель</string>
+    <string name="lvl4_text_10">Сумки</string>
+    <string name="lvl4_text_11">Лимон</string>
+    <string name="lvl4_text_12">Ёлка</string>
+    <string name="lvl4_text_13">Лук</string>
+    <string name="lvl4_text_14">Домик</string>
+    <string name="lvl4_text_15">Помидор</string>
+    <string name="lvl4_text_16">Мешок</string>
+    <string name="lvl4_text_17">Авокадо</string>
+    <string name="lvl4_text_18">Шар</string>
+    <string name="lvl4_text_19">Гранат</string>
+    <string name="lvl4_text_20">Шапка</string>
+</resources>
