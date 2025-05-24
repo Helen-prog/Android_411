@@ -1,0 +1,39 @@
+montserrat
+
+Toast
+AlertDialog
+
+Intent
+
+Растровые изображения
+Векторные изображения
+
+
+
+
+GameXO
+
+Цвет: #0000FF
+Шрифт: Merienda One
+
+Размер маленьких изображений: 40x20
+	- ic_oicon.png
+	- ic_xicon.png
+Размер больших изображений: 80x80
+	- oimage.png
+	- ximage.png
+	
+PlayingField
+ResultDialog
+
+19 апреля 2025
+$121
+121Rub
+
+SharedPreferences
+
+Создать игру с возможностью выбора из двух вариантов.
+
+
+Создать Spinner выбора изображений городов
+

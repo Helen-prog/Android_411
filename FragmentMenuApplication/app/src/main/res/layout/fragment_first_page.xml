@@ -1,19 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".FirstPage">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RatingBar
+        android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FirstPage!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:numStars="5"
+        android:stepSize="0.25"
+        android:rating="2.5"
+        android:progressTint="@color/orange"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/rating_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Rating"
+        android:layout_margin="20dp"
+        android:paddingHorizontal="40dp"
+        android:textSize="20sp"
+        android:backgroundTint="@color/green"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="?android:attr/listDivider" />
+
+    <Spinner
+        android:id="@+id/spinner_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:entries="@array/colors"
+        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+        />
+<!--    android:background="@android:drawable/btn_dropdown"-->
+    <Button
+        android:id="@+id/button_find_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Определить цвет"
+        android:backgroundTint="@color/orange"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
+
+    <TextView
+        android:id="@+id/text_view_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_margin="30dp"/>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="?android:attr/listDivider" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:progressDrawable="@drawable/custom_seekbar"
+        android:thumb="@drawable/seekbar_thumb"
+        android:progress="0"
+        android:max="100"
+        android:indeterminate="false" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0/100"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:min="0"
+        android:max="10"
+        android:progress="0"
+        android:layout_margin="20dp"/>
+
+    <TextView
+        android:id="@+id/textSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextSize"
+        android:textSize="14sp"
+        android:layout_marginHorizontal="30dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/baseline_add_24"
+        android:backgroundTint="@color/orange"
+        app:maxImageSize="40dp"
+        android:tintMode="@color/white"
+        android:layout_gravity="end"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        />
+</LinearLayout>

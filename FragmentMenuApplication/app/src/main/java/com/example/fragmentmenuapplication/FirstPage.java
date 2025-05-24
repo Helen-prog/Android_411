@@ -1,5 +1,6 @@
 package com.example.fragmentmenuapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,58 +8,111 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.SeekBar;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FirstPage#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class FirstPage extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    RatingBar ratingBar;
+    Button ratingButton;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    Spinner spinnerColors;
+    Button buttonFindDescription;
+    TextView textViewDescription;
 
-    public FirstPage() {
-        // Required empty public constructor
-    }
+    SeekBar seekBar;
+    TextView textView;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FirstPage.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FirstPage newInstance(String param1, String param2) {
-        FirstPage fragment = new FirstPage();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    SeekBar seekBarDiscrete;
+    TextView textSize;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first_page, container, false);
+        View view = inflater.inflate(R.layout.fragment_first_page, container, false);
+
+        ratingBar = view.findViewById(R.id.ratingBar);
+        ratingButton = view.findViewById(R.id.rating_btn);
+
+        ratingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float value = ratingBar.getRating();
+                Toast.makeText(getContext(), "Rating: " + value, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        spinnerColors = view.findViewById(R.id.spinner_list);
+        buttonFindDescription = view.findViewById(R.id.button_find_description);
+        textViewDescription = view.findViewById(R.id.text_view_description);
+
+        buttonFindDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = spinnerColors.getSelectedItemPosition();
+                String description  = getDescriptionPosition(position);
+                textViewDescription.setText(description);
+
+                String colors = getColors(position);
+                buttonFindDescription.setBackgroundColor(Color.parseColor(colors));
+            }
+        });
+
+        seekBar = view.findViewById(R.id.seekBar);
+        textView = view.findViewById(R.id.textView);
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textView.setText(progress + "/100");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                textView.setTextColor(Color.parseColor("#FF6100"));
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                textView.setTextColor(Color.parseColor("gray"));
+            }
+        });
+
+        seekBarDiscrete = view.findViewById(R.id.seekBar2);
+        textSize = view.findViewById(R.id.textSize);
+
+        seekBarDiscrete.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textSize.setTextSize(progress * 3);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        return view;
+    }
+
+    private String getDescriptionPosition(int position){
+        String[] description = getResources().getStringArray(R.array.description_of_temp);
+        return description[position];
+    }
+
+    private String getColors(int position){
+        String[] description = getResources().getStringArray(R.array.colors_button);
+        return description[position];
     }
 }

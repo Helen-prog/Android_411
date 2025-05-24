@@ -45,11 +45,16 @@ public class MainActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.second_page) {
                     replaceFragment(new SecondPage());
                     drawerLayout.closeDrawer(GravityCompat.START);
+                } else if (item.getItemId() == R.id.third_page) {
+                    replaceFragment(new ThirdPage());
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else if (item.getItemId() == R.id.fourth_page) {
+                    replaceFragment(new FourthPage());
+                    drawerLayout.closeDrawer(GravityCompat.START);
                 }
                 return false;
             }
         });
-
     }
 
     private void replaceFragment(Fragment fragment){
