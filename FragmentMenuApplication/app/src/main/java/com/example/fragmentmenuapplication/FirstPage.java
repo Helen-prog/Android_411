@@ -1,19 +1,26 @@
 package com.example.fragmentmenuapplication;
 
+import android.app.Dialog;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class FirstPage extends Fragment {
@@ -31,6 +38,8 @@ public class FirstPage extends Fragment {
     SeekBar seekBarDiscrete;
     TextView textSize;
 
+    FloatingActionButton fab;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,6 +47,7 @@ public class FirstPage extends Fragment {
 
         ratingBar = view.findViewById(R.id.ratingBar);
         ratingButton = view.findViewById(R.id.rating_btn);
+        fab = view.findViewById(R.id.fab);
 
         ratingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +113,61 @@ public class FirstPage extends Fragment {
             }
         });
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showBottomDialog();
+            }
+        });
+
         return view;
+    }
+
+    private void showBottomDialog() {
+        final Dialog dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.bottom_sheet_layout);
+
+        TextView second = dialog.findViewById(R.id.second);
+        TextView third = dialog.findViewById(R.id.third);
+        TextView fourth = dialog.findViewById(R.id.fourth);
+
+        second.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                replaceFragment(new SecondPage());
+            }
+        });
+
+        third.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                replaceFragment(new ThirdPage());
+            }
+        });
+
+        fourth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                replaceFragment(new FourthPage());
+            }
+        });
+
+        dialog.show();
+
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 
     private String getDescriptionPosition(int position){
