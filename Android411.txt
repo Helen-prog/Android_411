@@ -37,3 +37,8 @@ SharedPreferences
 
 Создать Spinner выбора изображений городов
 
+Создать RecyclerView.Adapter для добавления элементов CardView
+
+Medium Phone APY 35
+Pixel 4 XL API 28
+Pixel 6 API 30

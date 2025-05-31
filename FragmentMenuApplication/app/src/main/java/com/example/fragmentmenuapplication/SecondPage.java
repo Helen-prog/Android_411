@@ -15,7 +15,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 import android.widget.TimePicker;
+import android.widget.ViewSwitcher;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,6 +27,12 @@ import java.util.Calendar;
 import java.util.List;
 
 public class SecondPage extends Fragment {
+
+    ImageButton beforeButton, nextButton;
+    ImageSwitcher imageSwitcher;
+
+    int index = 0;
+    int[] mas = {R.drawable.inedible_5, R.drawable.inedible_6, R.drawable.inedible_7, R.drawable.inedible_8};
 
     EditText editText;
     Button add;
@@ -81,6 +91,45 @@ public class SecondPage extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
+
+        beforeButton = view.findViewById(R.id.before);
+        nextButton = view.findViewById(R.id.next);
+        imageSwitcher = view.findViewById(R.id.imageSwitcher);
+
+        beforeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                index--;
+                if(index < 0){
+                    index = mas.length - 1;
+                }
+                imageSwitcher.setImageResource(mas[index]);
+            }
+        });
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                index++;
+                if(index == mas.length){
+                    index = 0;
+                }
+                imageSwitcher.setImageResource(mas[index]);
+            }
+        });
+
+        imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                ImageView imageView = new ImageView(getActivity().getApplicationContext());
+
+                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                imageView.setMaxWidth(250);
+                imageView.setMaxHeight(350);
+                return imageView;
+            }
+        });
+        imageSwitcher.setImageResource(mas[index]);
 
         return view;
     }
