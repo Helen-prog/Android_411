@@ -42,3 +42,10 @@ SharedPreferences
 Medium Phone APY 35
 Pixel 4 XL API 28
 Pixel 6 API 30
+
+Android 9                (API 28)
+Android 10+ (11+)         (API 30)
+Android 13+  (разрешения уже есть)  (API 33+ (35))
+
+При запуске приложения должен отображаться текст
+Разрешение предоставлено или Разрешение не предоставлено
