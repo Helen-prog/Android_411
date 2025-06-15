@@ -49,3 +49,26 @@ Android 13+  (разрешения уже есть)  (API 33+ (35))
 
 При запуске приложения должен отображаться текст
 Разрешение предоставлено или Разрешение не предоставлено
+
+*.db, *.sqlite
+
+profile.db
+
+CREATE TABLE IF NOT EXISTS users(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    summa REAL,
+    date BLOB
+);
+
+SELECT [ALL | DISTINCT] * | столбец1 [, столбец2]
+FROM имя_таблицы1 [, имя_таблицы2]
+WHERE условие
+	операторы стравнения (=, <>, !=, >, >=, <, <=)
+	AND, OR
+	поле [NOT] BETWEEN начальное_значение AND конечное_значение
+	поле [NOT] LIKE шаблон строки:
+		% - любое количество символов
+		_ - любой одиночный символов
+		
+	
