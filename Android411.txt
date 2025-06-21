@@ -72,3 +72,34 @@ WHERE условие
 		_ - любой одиночный символов
 		
 	
+
+
+
+
+	
+		
+		
+		
+		
+		
+		
+INSERT INTO Ware
+VALUES (1026,'(F8E157eaLRG)', 'полиэстер/нейлон', 'ч', '38,1x28x70', 'Германия', '2014', 126, 0, 'Stone Street
+Case (15)');
+
+INSERT INTO Ware
+VALUES ("1254","СС06", "нейлон", "ч", "38x29x7", "Германия", "2011", "110","6", "Nylon Computer Case (15'')");
+		
+INSERT INTO Ware
+VALUES ('1049','(KCB-03BKP)', 'кожзам.', 'ч', '40x30x8,5', 'Германия', '2001', '325','14', 'System Case (15'')');
+
+INSERT INTO Ware
+VALUES ('1001','(CKN-002)', 'кожзам.', 'ч', '39x30x6,4', 'Германия', '2001', '143', '2', 'Notebrief (13,2'')');
+
+INSERT INTO Ware
+VALUES ("1036","(CN01)", "полиэстер", "ч", "39x30x5", "Германия", "2011", "435","32", "Computer Case (15/15,4'')");
+
+
+INSERT INTO Ware
+VALUES ("1017","(PON-303BK)", "полиэстер", "ч", "44,5x33,7x5,1", "Германия", "2015", "110","29", "Large Expandable
+computer brief (17'')");
