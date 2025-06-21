@@ -218,47 +218,128 @@ public class InternalFragment extends Fragment implements OnFileSelectedListener
                         alertDialogDetails.show();
                         break;
 
-                    case "Rename":
-                        AlertDialog.Builder renameDialog = new AlertDialog.Builder(getContext());
-                        renameDialog.setTitle("Rename file:");
-                        final EditText name = new EditText(getContext());
-                        renameDialog.setView(name);
 
-                        renameDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    case "Rename":
+                        AlertDialog.Builder renameDialog = new AlertDialog.Builder(getContext());// renameDialog просто название
+                        renameDialog.setTitle("Rename File:"); // в renameDialog устанваливаем текст (Title - внимательно, не setText!)
+                        final EditText name = new EditText(getContext()); // создаем редактируемый текст в переменной name
+                        renameDialog.setView(name); // обращаемся к renameDialog через метод setView и передаем в него значение name
+
+//Кнопки для Ok для Rename и Cancel
+// добавляем кнопку Ок с обработчиком нажатия на нее
+                        renameDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                String newName = name.getEditableText().toString();
 
-                                File current = new File(file.getAbsolutePath());
-                                File destination;
-                                if (!file.isDirectory()) {
-                                    String extension = file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("."));
+                                // Шаг 1: Получаем новое имя от пользователя
+                                String newName = name.getEditableText().toString().trim();
+                                File parentDir = file.getParentFile(); // Получаем папку, в которой лежит переименовываемый файл/папка.
 
-                                    destination = new File(file.getAbsolutePath().replace(file.getName(), newName) + extension);
-                                } else {
-                                    destination = new File(file.getAbsolutePath().replace(file.getName(), newName));
+                                String extension = ""; //Создаём пустую строку extension, куда позже (возможно) запишем расширение. Если файл окажется папкой, или у него нет точки в имени — extension так и останется пустым (""), потому что у папок и некоторых файлов нет расширений.
+                                if (file.isFile()) { // Проверяем, является ли file обычным файлом, а не папкой: file.isFile() вернёт true, если это именно файл и false, если это папка
+                                    int dotIndex = file.getName().lastIndexOf("."); //Находим индекс последней точки в имени (обычно перед расширением).
+                                    if (dotIndex != -1) { //Если lastIndexOf(".") не находит точку, он вернёт -1. В таком случае расширения нет — значит, не трогаем extension.
+                                        extension = file.getName().substring(dotIndex); // Получаем подстроку от точки до конца — то есть само расширение вместе с точкой!
+                                        //Итого, что делает этот блок? Если это файл, а не папка: Ищем, есть ли расширение (точка в имени). Если есть — берём его и сохраняем. Если файл без расширения или это папка — extension остаётся пустым.
+                                    }
                                 }
-                                if (current.renameTo(destination)) {
-                                    fileList.set(position, destination);
-                                    fileAdapter.notifyItemChanged(position);
+
+                                File destination = new File(parentDir, newName + extension); //Создаём новый путь — куда хотим переименовать: В ту же папку (parentDir) С новым именем (newName) Плюс расширение (если файл).
+
+                                if (file.renameTo(destination)) { //Пробуем переименовать файл или папку: renameTo(...) возвращает true, если всё прошло успешно.
+//+++++++++++++++++++++++++++этот блок убрал и заработало переименование как папки и файла в корне так и файла в папке+++++++++++++++++++++++++++++++++++
+//                                    fileList.set(position, destination); //Обновляем элемент в списке fileList на новое значение.
+//                                    fileAdapter.notifyItemChanged(position); //Сообщаем адаптеру, что элемент на этой позиции изменился (notifyItemChanged).
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                                     Toast.makeText(getContext(), "Renamed!", Toast.LENGTH_SHORT).show();
                                     displayFiles();
                                 } else {
-                                    Toast.makeText(getContext(), "Couldn't Rename!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), "Rename Error!", Toast.LENGTH_SHORT).show();
                                 }
+//  здесь код с урока в нем не работает переименование файлов внутри папок. в корне переименовывает нормально
+/*                                String newName = name.getEditableText().toString(); // берём текст из name (это поле ввода из пункта Rename), превращаем его в обычную строку и сохраняешь в newName.
+// Создаём объект File, указывающий на текущий файл, который мы хотим переименовать.
+                                File current = new File(file.getAbsolutePath()); // переменная для исходного файла который будем переименовывать
+                                File destination;
+                                if(!file.isDirectory()){
+                                // Получаем расширение файла. Здесь от всего пути останется точка и расширение. и сохранится это в extension
+                                String extension = file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf(".")); // file.getAbsolutePath() Получает полный путь к файлу в виде строки (например "/storage/emulated/0/Download/image.jpg"). lastIndexOf(".")  Ищет последнюю точку в этом пути. Она как раз перед расширением файла (file.getAbsolutePath().lastIndexOf(".") ➝ позиция точки перед ".jpg"). substring(...) Берёт подстроку от этой точки до конца строки, то есть возвращает (".jpg" - да вместе с точкой!). Что будет в переменной extension? - ".jpg"//Если тебе нужно только расширение без точки, можно сделать вот так: String extension = file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf(".") + 1);
+                                destination = new File(file.getAbsolutePath().replace(file.getName(), newName) + extension); // Эта строка создаёт новый путь для файла, заменяя старое имя файла на новое, и добавляя расширение. file.getAbsolutePath() - получаем полный путью file.getName() - Получаем только имя файла (без пути). .replace(file.getName(), newName) - заменяем исходное имя на новое. + extension - добавляем расширение. Все это сохраняем в destination
+                                }
+                                else {
+                                    destination = new File(file.getAbsolutePath().replace(file.getName(), newName));
+                                }
+                                 if (current.renameTo(destination)){// если текущий файл или папка (в current попадает и то и другое) имеет расширение
+                                    fileList.set(position, destination); // Обновляем список файлов (fileList) — заменяем старый файл на новый по позиции position
+                                    fileAdapter.notifyItemChanged(position); // Сообщаем адаптеру  что на позиции position что-то изменилось.
+                                    Toast.makeText(getContext(), "Renamed!", Toast.LENGTH_SHORT).show(); // сообщение "Renamed!" — подтверждение успешного действия. getContext() означает что это сообщение появится в этом окне
+                                     displayFiles(); // сразу обновляем экран чтобы переименованный файл увидеть
+                                }
+                                else {
+                                    Toast.makeText(getContext(), "Renamed Error!", Toast.LENGTH_SHORT).show(); // если переименование не удалось — выводим сообщение об ошибке.
+// Что делает весь блок? Когда пользователь жмёт "ОК" в диалоге переименования: //Читает новый текст, который он ввёл.//Выделяет расширение исходного файла.//Создаёт новый путь с новым именем и тем же расширением.
+//Пытается переименовать файл.//Если успешно://Обновляет список файлов.//Обновляет UI.//Показывает тост "Renamed!".//Если неуспешно://Показывает "Renamed Error!"
+                            }*/
                             }
                         });
-
+                        // добавляем кнопку Cancel с обработчиком нажатия на нее
                         renameDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                optionDialog.cancel();
+                                optionDialog.cancel(); // жмем Cancel и окно Rename закрывается
                             }
                         });
-
-                        AlertDialog alertDialogRename = renameDialog.create();
-                        alertDialogRename.show();
+                        AlertDialog alertDialogRenaime = renameDialog.create(); //вызываем AlertDialog. это для Renaim
+                        alertDialogRenaime.show();
                         break;
+
+                    //  Этим кодом я заменил код с урока (до 291 стр)
+                    // Шаг 1: Получаем новое имя от пользователя
+                    // String newName = name.getEditableText().toString().trim();                                File parentDir = file.getParentFile();
+                    // Получаем папку, в которой лежит переименовываемый файл/папка.                                String extension = "";
+                    // Создаём пустую строку extension, куда позже (возможно) запишем расширение. Если файл окажется папкой, или у него нет точки в имени — extension так и останется пустым (""), потому что у папок и некоторых файлов нет расширений.                                if (file.isFile()) { // Проверяем, является ли file обычным файлом, а не папкой: file.isFile() вернёт true, если это именно файл и false, если это папка                                    int dotIndex = file.getName().lastIndexOf("."); //Находим индекс последней точки в имени (обычно перед расширением).                                    if (dotIndex != -1) { //Если lastIndexOf(".") не находит точку, он вернёт -1. В таком случае расширения нет — значит, не трогаем extension.                                        extension = file.getName().substring(dotIndex); // Получаем подстроку от точки до конца — то есть само расширение вместе с точкой!                                        //Итого, что делает этот блок? Если это файл, а не папка: Ищем, есть ли расширение (точка в имени). Если есть — берём его и сохраняем. Если файл без расширения или это папка — extension остаётся пустым.                                    }                                }                                File destination = new File(parentDir, newName + extension); //Создаём новый путь — куда хотим переименовать: В ту же папку (parentDir) С новым именем (newName) Плюс расширение (если файл).                                if (file.renameTo(destination)) { //Пробуем переименовать файл или папку: renameTo(...) возвращает true, если всё прошло успешно.//+++++++++++++++++++++++++++этот блок убрал и заработало переименование как папки и файла в корне так и файла в папке+++++++++++++++++++++++++++++++++++//                                    fileList.set(position, destination); //Обновляем элемент в списке fileList на новое значение.//                                    fileAdapter.notifyItemChanged(position); //Сообщаем адаптеру, что элемент на этой позиции изменился (notifyItemChanged).//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++                                    Toast.makeText(getContext(), "Renamed!", Toast.LENGTH_SHORT).show();                                    displayFiles();                                } else {                                    Toast.makeText(getContext(), "Rename Error!", Toast.LENGTH_SHORT).show();                                }
+
+//                    case "Rename":
+//                        AlertDialog.Builder renameDialog = new AlertDialog.Builder(getContext());
+//                        renameDialog.setTitle("Rename file:");
+//                        final EditText name = new EditText(getContext());
+//                        renameDialog.setView(name);
+//
+//                        renameDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                String newName = name.getEditableText().toString();
+//
+//                                File current = new File(file.getAbsolutePath());
+//                                File destination;
+//                                if (!file.isDirectory()) {
+//                                    String extension = file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("."));
+//
+//                                    destination = new File(file.getAbsolutePath().replace(file.getName(), newName) + extension);
+//                                } else {
+//                                    destination = new File(file.getAbsolutePath().replace(file.getName(), newName));
+//                                }
+//                                if (current.renameTo(destination)) {
+//                                    fileList.set(position, destination);
+//                                    fileAdapter.notifyItemChanged(position);
+//                                    Toast.makeText(getContext(), "Renamed!", Toast.LENGTH_SHORT).show();
+//                                    displayFiles();
+//                                } else {
+//                                    Toast.makeText(getContext(), "Couldn't Rename!", Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });
+//
+//                        renameDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                optionDialog.cancel();
+//                            }
+//                        });
+//
+//                        AlertDialog alertDialogRename = renameDialog.create();
+//                        alertDialogRename.show();
+//                        break;
                     case "Delete":
                         AlertDialog.Builder deleteDialog = new AlertDialog.Builder(getContext());
                         deleteDialog.setTitle("Delete " + file.getName() + "?");
