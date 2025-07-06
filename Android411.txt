@@ -78,22 +78,57 @@ WHERE условие
 		[^abc] - соответствует любому одиночному символу, который не входит в заданный перечень
 	поле IS [NOT] NULL	
 	поле IN (набор_значений | выражение)
+GROUP BY (группировать по)	
+HAVING (условие)	
 ORDER BY col_name | col_number [ASC | DESC]
+LIMIT количество_строк [, OFFSET смещение]
+	LIMIT [смещение,] количество_строк
 		
 		
 		
+CREATE TABLE IF NOT EXISTS person(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    phone BLOB NOT NULL DEFAULT "+79991234567",
+    age INTEGER CHECK(age > 0 AND age < 100),
+    surname TEXT NOT NULL 
+        CHECK(surname GLOB '*[0-9]*' = 0),
+    email TEXT UNIQUE
+);
+
+ALTER TABLE person
+RENAME TO person_table;
+
+
+INSERT INTO имя_таблицы [(названия_столбцов)]
+VALUES (набор_значений)
+
+
+INSERT INTO имя_таблицы [(названия_столбцов)]
+SELECT список_столбцов
+FROM список_таблиц
+WHERE условие
+
+
+UPDATE имя_таблицы
+SET поле=значение
+WHERE условие
+
+
+DELETE FROM имя_таблицы
+WHERE условие
+
+
+INSERT INTO Ware
+VALUES 
+(1026,'(F8E157eaLRG)', 'полиэстер/нейлон', 'ч', '38,1x28x70', 'Германия', '2014', 126, 0, 'Stone Street Case (15)'),
+("1254","СС06", "нейлон", "ч", "38x29x7", "Германия", "2011", "110","6", "Nylon Computer Case (15'')"),
+('1049','(KCB-03BKP)', 'кожзам.', 'ч', '40x30x8,5', 'Германия', '2001', '325','14', 'System Case (15'')'),
+('1001','(CKN-002)', 'кожзам.', 'ч', '39x30x6,4', 'Германия', '2001', '143', '2', 'Notebrief (13,2'')'),
+("1036","(CN01)", "полиэстер", "ч", "39x30x5", "Германия", "2011", "435","32", "Computer Case (15/15,4'')"),
+("1017","(PON-303BK)", "полиэстер", "ч", "44,5x33,7x5,1", "Германия", "2015", "110","29", "Large Expandable computer brief (17'')");
+
 	
-
-
-
-
-	
-		
-		
-		
-		
-		
-		
 INSERT INTO Ware
 VALUES (1026,'(F8E157eaLRG)', 'полиэстер/нейлон', 'ч', '38,1x28x70', 'Германия', '2014', 126, 0, 'Stone Street
 Case (15)');
@@ -114,3 +149,140 @@ VALUES ("1036","(CN01)", "полиэстер", "ч", "39x30x5", "Германи�
 INSERT INTO Ware
 VALUES ("1017","(PON-303BK)", "полиэстер", "ч", "44,5x33,7x5,1", "Германия", "2015", "110","29", "Large Expandable
 computer brief (17'')");
+
+
+SELECT *
+FROM Ware
+WHERE 
+REM GLOB '*[Cc]ase*' AND Material = 'кожа' AND 
+Size GLOB '[4-9][0-9]*x[3-9][0-9]*x[5-9]*';
+
+
+
+
+Логическая база данных
+Физическая база данных
+
+
+Декартовое произведение - все возможные комбинации
+каждой строки одной таблицы с каждой строкой другой таблицы
+
+Функции агрегирования
+SUM()   - только с числовыми полями
+AVG()   - только с числовыми полями
+COUNT()
+MIN()
+MAX()
+
+
+ON DELETE и ON UPDATE
+
+CASCADE - автоматически удалятся строки из зависимой таблицы
+
+RESTRICT - отклоняет удаление записей в главной таблице при наличии связанных записей в зависимой таблице  (значение по умолчанию)
+
+SET NULL - при удалении записи в связанной таблице установится значение NULL 
+
+SET DEFAULT - при удалении записи в связанной таблице установится значение по умолчанию 
+
+
+Подзапросы
+
+- однострочные  (=, !=, <>, >, >=, <, <=)
+- многострочные  (IN, NOT IN)
+
+
+SELECT o.amt
+FROM Orders o, Salespeople s
+WHERE o.snum = s.snum AND s.sname = "Rifkin";
+
+SELECT amt
+FROM Orders
+WHERE snum = -- 1007
+    (SELECT snum
+    FROM Salespeople
+    WHERE sname = "Rifkin");
+	
+	
+CREATE TABLE IF NOT EXISTS association(
+     group_id INTEGER,
+     lesson_id INTEGER,
+     PRIMARY KEY (group_id, lesson_id)
+     FOREIGN KEY (group_id) REFERENCES groups(id)
+     FOREIGN KEY (lesson_id) REFERENCES lessons(id)
+
+
+SELECT Kafedra, Decanat 
+FROM Kafedra 
+WHERE Kafedra IN 
+    (SELECT Kafedra 
+    FROM G 
+    WHERE "Group" IN 
+        (SELECT "Group" 
+        FROM Student 
+        WHERE ID_St IN 
+            (SELECT Id_St 
+            FROM Exzamen 
+            WHERE Predmet='Социология' )))
+			
+			
+SELECT Kafedra, Decanat, (SELECT FIO
+                            FROM Kafedra k, Exzamen e, Student s, G g
+                            WHERE e.Predmet GLOB "Социология" AND
+                                              e.Id_St = s.Id_St AND
+                                              s."Group" = g."Group" AND
+                                              g.Kafedra = k.Kafedra)
+FROM Kafedra 
+WHERE Kafedra IN 
+    (SELECT Kafedra 
+    FROM G 
+    WHERE "Group" IN 
+        (SELECT "Group" 
+        FROM Student 
+        WHERE ID_St IN 
+            (SELECT Id_St 
+            FROM Exzamen
+            WHERE Predmet='Социология' )));
+            
+
+
+SELECT Kafedra, Decanat, (SELECT FIO 
+                            FROM Student 
+                            WHERE ID_St=
+                                (SELECT Id_St 
+                                FROM Exzamen 
+                                WHERE Predmet="Социология"
+                                ) 
+                        )                         
+FROM Kafedra 
+WHERE Kafedra IN 
+    (SELECT Kafedra 
+    FROM G 
+    WHERE "Group" IN 
+        (SELECT "Group" 
+        FROM Student 
+        WHERE ID_St IN 
+            (SELECT Id_St 
+            FROM Exzamen 
+            WHERE Predmet='Социология' )))
+			
+			((5+9)*(5-9))
+			
+			
+UNION, UNION ALL
+
+SELECT список_столбцов
+FROM таблица1 [INNER] JOIN таблица2 ON связь_таблиц
+		[[INNER] JOIN таблица3 ON связь_таблиц]
+		
+		OUTER JOIN:
+LEFT JOIN   
+RIGHT JOIN
+
+/data/data/com.example.sqliteapplication/databases/app.db
+
+C:\Users\Helen\AppData\Local\Google\AndroidStudio2024.2\device-explorer\Medium Phone API 35\_\data\data\com.example.sqliteapplication\databases
+
+SimpleSqliteBrowser
+
+Ctrl + Alt + C
