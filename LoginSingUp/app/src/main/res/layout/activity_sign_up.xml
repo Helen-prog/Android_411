@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sign_up_screen"
+    tools:context=".SignUpActivity">
+
+    <EditText
+        android:id="@+id/signUpEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="390dp"
+        android:ems="12"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:drawableStart="@drawable/baseline_email_24"
+        android:drawablePadding="10dp"
+        android:background="@drawable/edit_shape"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/signUpPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="12"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_marginTop="50dp"
+        android:drawableStart="@drawable/baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:background="@drawable/edit_shape"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpEmail" />
+
+    <EditText
+        android:id="@+id/singUpConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_shape"
+        android:drawablePadding="10dp"
+        android:ems="12"
+        android:layout_marginTop="50dp"
+        android:hint="Confirm Password"
+        android:drawableStart="@drawable/baseline_password_24"
+        android:inputType="textPassword"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpPassword" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:text="Sign Up"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/green"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singUpConfirmPassword" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

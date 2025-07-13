@@ -286,3 +286,6 @@ C:\Users\Helen\AppData\Local\Google\AndroidStudio2024.2\device-explorer\Medium P
 SimpleSqliteBrowser
 
 Ctrl + Alt + C
+
+
+Добавить регистрацию и авторизацию к любому приложению
