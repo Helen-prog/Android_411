@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.todolistapplication"
+    namespace = "com.example.notes"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.todolistapplication"
+        applicationId = "com.example.notes"
         minSdk = 28
         targetSdk = 35
         versionCode = 1
@@ -33,7 +33,8 @@ android {
 
 dependencies {
 
-    implementation(libs.recyclerview.swipedecorator)
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
 
     implementation(libs.appcompat)
     implementation(libs.material)
