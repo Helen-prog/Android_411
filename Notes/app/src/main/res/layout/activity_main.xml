@@ -8,12 +8,24 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_alignParentTop="true"
+        app:queryHint="Enter text..."
+        android:background="@color/yellow"
+        app:iconifiedByDefault="true" />
+<!--   app:searchIcon="@drawable/baseline_add_24" -->
+<!--    app:hideNavigationIcon="true"-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:layout_below="@+id/search_view_home"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"

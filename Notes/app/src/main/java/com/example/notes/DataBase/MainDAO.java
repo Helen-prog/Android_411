@@ -17,7 +17,7 @@ public interface MainDAO {
     @Insert(onConflict = REPLACE)
     void insert(Notes notes);
 
-    @Query("SELECT * FROM notes ORDER BY id DESC")
+    @Query("SELECT * FROM notes ORDER BY pinned DESC, id DESC")
     List<Notes> getAll();
 
     @Query("UPDATE notes SET title = :title, notes = :notes WHERE ID = :id")
@@ -25,4 +25,7 @@ public interface MainDAO {
 
     @Delete
     void delete(Notes notes);
+
+    @Query("UPDATE notes SET pinned = :pin WHERE ID = :id")
+    void pin(int id, boolean pin);
 }

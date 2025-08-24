@@ -291,3 +291,24 @@ Ctrl + Alt + C
 Добавить регистрацию и авторизацию к любому приложению.
 
 
+
+ContentProvider
+
+
+ContactsContract.Contacts
+Строки в таблице Contacts содержат данные о пользователях, полученные путем агрегации строк необработанных контактов.
+
+ContactsContract.RawContacts
+Строки в таблице RawContacts содержат сводные данные о пользователях, относящиеся к пользовательским учетным записям и их типам.
+
+ContactsContract.Data
+Строки в таблице Data содержат сведения о необработанных контактах, например email или номера телефонов.
+
+
+Доступ на чтение записей
+<uses-permission
+ android:name="android.permission.READ_CONTACTS" />
+ 
+// Доступ на внесение и обновление записей
+<uses-permission
+ android:name="android.permission.WRITE_CONTACTS" />
