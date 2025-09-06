@@ -20,8 +20,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/baseline_person_24"
-            android:background="@drawable/circular"
-            />
+            android:background="@drawable/circular" />
 
         <TextView
             android:id="@+id/contact_name"
