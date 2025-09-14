@@ -10,6 +10,12 @@ public class Post {
         this.body = body;
     }
 
+    public Post(String userId, String title, String body) {
+        this.userId = userId;
+        this.title = title;
+        this.body = body;
+    }
+
     public String getUserId() {
         return userId;
     }
