@@ -12,20 +12,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FiebaseApp"
+        android:theme="@style/Theme.ChatApp"
         tools:targetApi="31">
         <activity
-            android:name=".HomeActivity"
+            android:name=".LoginUsernameActivity"
             android:exported="false" />
         <activity
-            android:name=".Signin.SigninActivity"
+            android:name=".LoginOtpActivity"
             android:exported="false" />
         <activity
-            android:name=".Signin.ProfileActivity"
+            android:name=".LoginPhoneActivity"
             android:exported="false" />
         <activity
-            android:name=".Signin.RegisterActivity"
-            android:exported="false" />
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

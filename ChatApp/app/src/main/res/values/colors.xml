@@ -3,5 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="violet">#673AB7</color>
+    <color name="color_primary">#5500FF</color>
+    <color name="color_secondary">#FFEE33</color>
+    <color name="light_gray">#999999</color>
 </resources>

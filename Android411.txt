@@ -364,3 +364,10 @@ emulator -list-avds
 implementation("com.github.bumptech.glide:glide:4.16.0")
 
 http://www.omdbapi.com/?apikey=2a56611e&s=Matrix 
+
+https://jsonplaceholder.typicode.com/posts
+
+https://jsonplaceholder.typicode.com/posts/1/comments
+https://jsonplaceholder.typicode.com/comments?postId=1
+
+implementation("com.hbb20:ccp:2.6.0") 
