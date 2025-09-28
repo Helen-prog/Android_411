@@ -359,6 +359,9 @@ emulator -list-avds
 
 .\emulator.exe -avd medium_phone_api_35 -dns-server 8.8.8.8
 
+
+.\emulator.exe -avd Pixel_6_API_30 -dns-server 8.8.8.8
+
 -grpc-use-jwt
 
 implementation("com.github.bumptech.glide:glide:4.16.0")
@@ -371,3 +374,7 @@ https://jsonplaceholder.typicode.com/posts/1/comments
 https://jsonplaceholder.typicode.com/comments?postId=1
 
 implementation("com.hbb20:ccp:2.6.0") 
+
+implementation("com.google.firebase:firebase-firestore")
+implementation("com.firebaseui:firebase-ui-firestore:9.0.0")
+implementation("com.google.firebase:firebase-auth")
